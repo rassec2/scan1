@@ -1,0 +1,51 @@
+# scan1 配置文件
+# 通用配置
+general:
+  threads: 50          # 并发线程数
+  timeout: 30          # 超时时间(秒)
+  output: "results"    # 输出目录
+  verbose: false       # 详细输出
+
+# 子域名枚举配置
+subfinder:
+  enabled: true        # 是否启用
+  threads: 10          # 线程数
+  timeout: 30          # 超时时间
+  output: "subdomains.txt"
+
+# 端口扫描配置
+naabu:
+  enabled: true        # 是否启用
+  ports: "80,443,8080,8443,3000,5000,8000,8888,9000"  # 扫描端口
+  rate: 1000           # 扫描速率
+  timeout: 5           # 超时时间(秒)
+  threads: 50          # 并发线程数
+
+# 网页爬取配置
+katana:
+  enabled: true        # 是否启用
+  depth: 3             # 爬取深度
+  max_time: 300        # 最大爬取时间(秒)
+  threads: 10          # 线程数
+
+# 漏洞扫描配置
+nuclei:
+  enabled: true        # 是否启用
+  severity: "low,medium,high,critical"  # 漏洞严重级别
+  rate_limit: 150      # 速率限制
+  bulk_size: 25        # 批量大小
+  timeout: 5           # 超时时间(秒)
+
+# HTTP探测配置
+httpx:
+  enabled: true        # 是否启用
+  threads: 150         # 线程数
+  rate_limit: 150      # 速率限制
+  timeout: 30          # 超时时间
+
+# 报告配置
+reporting:
+  html: true           # 生成HTML报告
+  json: true           # 生成JSON报告
+  text: true           # 生成文本报告
+  output: "reports"    # 报告输出目录
